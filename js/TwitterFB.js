@@ -7,7 +7,7 @@ function parse() {
 	} else if (document.URL.search("facebook.com") != -1) {
 		classIdentifier = '_5pbx userContent';
 	} else {
-
+			
 	}
 
 	var posts = document.getElementsByClassName(classIdentifier);
