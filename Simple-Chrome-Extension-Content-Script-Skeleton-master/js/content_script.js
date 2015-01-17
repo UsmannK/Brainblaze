@@ -1,3 +1,5 @@
+
+	var txt = ""
 $(function() {
 
 	var site = '';
@@ -12,18 +14,24 @@ $(function() {
 	}
 
 	var posts = null;
-	if(site == 'twitter')
+	if(site == 'twitter') {
 		posts = $(".tweet-text");
-	else if(site == 'fb')
-		posts = $("._5pbx", "userContent");
+		txt = ".tweet-text";
+	}
+	else if(site == 'fb') {
+		posts = $(".userContent");
+		txt = ".userContent";
+	}
 
-	for (i = 0; i < posts.length; i++) { 
-	posts.eq(i).addClass("demo-tooltip");
-}
-
+	//$(txt).length
 
 });
 
+$(window).scroll(function() {
+	Tipped.create(txt, 'Some tooltip text');
+})
+
 $(document).ready(function() {
-  Tipped.create('.demo-tooltip', 'Some tooltip text');
+  Tipped.create(txt, 'Some tooltip text');
+  $(txt).css("float", "left");
 });
