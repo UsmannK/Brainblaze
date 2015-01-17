@@ -5,7 +5,7 @@ import re, sys
 
 class Replacer(object):
 	def __init__(self,txt):
-		client = TextRazor(api_key="888aab2b35bdfc628f06baeb87890b60740241a1322914aed001ddc9", extractors=["words", "entailments", "entities"])
+		client = TextRazor(api_key="5baac325bc09c70ee5f9f66a9a7ed91312dda96a0c2f51cdb39322bf", extractors=["words", "entailments", "entities"])
 		#response = client.analyze_url("http://usmann.me/new.txt")
 		response = client.analyze(txt);
 		#for entity in response.entities():
@@ -84,7 +84,7 @@ class Replacer(object):
 
 		for x in range(0, len(cur_match_set)):
 			if(len(cur_match_set[x].split(" ")) == 4):
-				score = 30000/float(cur_match_set[x].split(" ")[3]) * 2/float(cur_match_set[x].split(" ")[1])
+				score = 0/float(cur_match_set[x].split(" ")[3]) * float(cur_match_set[x].split(" ")[1])
 				#print "Score: " + str(score)
 				#print matcher
 				cur_match_set[x] = cur_match_set[x] + " " + str(score)
@@ -112,17 +112,19 @@ class Replacer(object):
 		#print entailments
 
 		#for entailment in response.entailments():
-Replacer("I just found a crazy new startup idea") #good 3000,0
-Replacer("This works on the idea of teaching") #no good
-Replacer("There is no better way to do this") #good 3000,0
-Replacer("What am I supposed to be doing") #no good
-Replacer("This is a test phrase") #no good
-Replacer("I have no idea what I am doing") #alright 3000,0
-Replacer("I wish you all wealth")
-Replacer("NodeJS is the only real developer language") #good, 3000,2
-Replacer("Facebook please give us a prize")
-Replacer("Or a job, that would work too")
-Replacer("This could be really useful, or really bad") #alright 3000,0 | better, 3000,2
-Replacer("Doubting this is ever gonna work")
-Replacer("I need more tests")
-Replacer("I wish people on twitter were as dumb as they seem")
+Replacer("hello my name is marty kausas, how are you doing?")
+# Replacer("I just found a crazy new startup idea") #good 3000,0
+# Replacer("This works on the idea of teaching") #no good
+# Replacer("There is no better way to do this") #good 3000,0
+# Replacer("What am I supposed to be doing") #no good
+# Replacer("This is a test phrase") #no good
+# Replacer("I have no idea what I am doing") #alright 3000,0
+# Replacer("I wish you all wealth")
+# Replacer("NodeJS is the only real developer language") #good, 3000,2
+# Replacer("Facebook please give us a prize")
+# Replacer("Or a job, that would work too")
+# Replacer("This could be really useful, or really bad") #alright 3000,0 | better, 3000,2
+# Replacer("Doubting this is ever gonna work")
+# Replacer("I need more tests")
+# Replacer("I wish people on twitter were as dumb as they seem") #Damn good 3000, 2
+# Replacer("Welcome to the waterpark")
