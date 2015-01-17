@@ -1,4 +1,4 @@
-
+var wordCount = 0;
 function parse() {
 	var classIdentifier = '';
 
@@ -27,9 +27,30 @@ function parse() {
 		// NOTE: the replacing the word is CASE-SENSITIVE
 		var oldWord = " the "; // issue: for words like 'and' it replaces itself in longer words such as 'anderson'  
 		var newWord = "!!!!chortle!!!!"; // possible fix ^^^ add spaces: ' and ' 
+		var definition = "a slight chuckle";
+		// var insertion = "<span 
+		// data-tipped-options=\"title: '" + newWord + "', position: 'top'\"
+		// title=\"" + definition + "\"  
+		// id=\"translated" + wordCount + "\">" + 
+		// newWord + 
+		// "</span>";
+		var insertion = 
+		"<span 
+		title=\"" + definition + "\" 
+		id=\"translated" + wordCount + "\" 
+		data-tipped-options=\"title: '" + newWord + "', position: 'top'\">" + newWord + "</span>";
+		
+		//"<span title=\"" + "word" + "\" id=\"translated" + "1" + "\" data-tipped-options=\"title: '" + newWord + "', position: 'top'\">hella</span>"
+		//"<span title=\"" + definition + "\" id=\"translated" + wordCount + "\" data-tipped-options=\"title: '" + newWord + "', position: 'top'\">hella</span>"
 
-		var newText = textWithTags.replace(oldWord, newWord);
+
+
+		Tipped.create('#word\'' + wordCount, { title: true, title: newWord });
+
+
+		var newText = textWithTags.replace(oldWord, insertion);
 		currentPostObject.innerHTML = newText;
+		wordCount++;
 	}
 } 
 
