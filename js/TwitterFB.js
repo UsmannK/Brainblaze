@@ -1,20 +1,40 @@
-var posts = document.getElementsByClassName('_5pbx userContent');
-for (i = 0; i < posts.length; i++) {
-	var currentPost = posts[i];
-	var currentPostObject = currentPost.getElementsByTagName('p')[0];
-	var textWithTags = currentPostObject.innerHTML;
-	var plainText = currentPostObject.innerText;
 
-	// synonym magic goes here
+function parse() {
+	var classIdentifier = '';
 
-	var oldWord = "";
-	var newWord = "";
+	if (document.URL.search("twitter.com") != -1) {
+		classIdentifier = 'js-tweet-text tweet-text';
+	} else if (document.URL.search("facebook.com") != -1) {
+		classIdentifier = '_5pbx userContent';
+	} else {
 
-	var newText = textWithTags.replace(oldWord, newWord);
-	currentPostObject.innerHTML = newText;
-}
+	}
 
-//testing
+	var posts = document.getElementsByClassName(classIdentifier);
+	for (i = 0; i < posts.length; i++) {
+		var currentPost = posts[i];
+		var currentPostObject;
+		if (document.URL.search("twitter.com") != -1) {
+			currentPostObject = currentPost;
+		} else {
+		 	currentPostObject = currentPost.getElementsByTagName('p')[0];
+		}
+		var textWithTags = currentPostObject.innerHTML;
+		var plainText = currentPostObject.innerText;
+
+		// synonym magic goes here
+
+		// NOTE: the replacing the word is CASE-SENSITIVE
+		var oldWord = " the "; // issue: for words like 'and' it replaces itself in longer words such as 'anderson'  
+		var newWord = "!!!!chortle!!!!"; // possible fix ^^^ add spaces: ' and ' 
+
+		var newText = textWithTags.replace(oldWord, newWord);
+		currentPostObject.innerHTML = newText;
+	}
+} 
+
+// --- TEST ZONE --- //
+// js-tweet-text tweet-text
 // var posts = document.getElementsByClassName('_5pbx userContent');
 
 // var currentPost = posts[0];

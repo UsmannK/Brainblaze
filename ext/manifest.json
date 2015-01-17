@@ -15,6 +15,7 @@
     "persistent": true
   },
   "permissions": [
+    "storage",
     "https://*/*",
     "http://*/*"
   ],
