@@ -22,7 +22,12 @@
 
 
 $(document).ready(function() {
-    $('#example').dataTable();
+	var table = $('#example').DataTable( {
+		scrollY: 300,
+		paging: false
+	} );
+
+	new $.fn.dataTable.KeyTable( table );
 } );
 
 
