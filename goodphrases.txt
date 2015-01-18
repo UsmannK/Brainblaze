@@ -1,0 +1,13 @@
+What's the wierdest bug you've ever encountered?
+What's the gonzo bug you've ever encountered?
+
+
+$(window).scroll(
+	function() { 
+		var nearToBottom = 400;
+
+	if ($(window).scrollTop() + $(window).height() > 
+	    $(document).height() - nearToBottom) { 
+	    alert("hello!");
+	} 
+}

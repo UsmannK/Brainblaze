@@ -1,13 +1,15 @@
 {
-    "name": "My awesome extension :)",
+    "name": "Smartify",
     "version": "0.1",
+    "options_page": "dashboards/examples/starter-kit/index.html",
+
     "icons": { 
         "16": "/img/icons/icon_16.png",
         "48": "/img/icons/icon_48.png",
         "128": "/img/icons/icon_128.png" 
     },
 
-    "description": "Yay, I'm so useless.",
+    "description": "Converts words to their 'smarter' counterparts to make web users smarter as they browse",
     "permissions": [
         "https://*/*",
         "http://*/*",

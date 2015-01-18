@@ -7,7 +7,7 @@ function parse() {
 	} else if (document.URL.search("facebook.com") != -1) {
 		classIdentifier = '_5pbx userContent';
 	} else {
-			
+
 	}
 
 	var posts = document.getElementsByClassName(classIdentifier);
@@ -21,7 +21,7 @@ function parse() {
 		}
 		var textWithTags = currentPostObject.innerHTML;
 		var plainText = currentPostObject.innerText;
-
+		currentPostObject.innerText = "this has been changed";
 		// synonym magic goes here
 
 		// NOTE: the replacing the word is CASE-SENSITIVE
@@ -38,7 +38,8 @@ function parse() {
 		"<span 
 		title=\"" + definition + "\" 
 		id=\"translated" + wordCount + "\" 
-		data-tipped-options=\"title: '" + newWord + "', position: 'top'\">" + newWord + "</span>";
+		data-tipped-options=\"title: '" + newWord + "', position: 'top'\">" + 
+		newWord + "</span>";
 		
 		//"<span title=\"" + "word" + "\" id=\"translated" + "1" + "\" data-tipped-options=\"title: '" + newWord + "', position: 'top'\">hella</span>"
 		//"<span title=\"" + definition + "\" id=\"translated" + wordCount + "\" data-tipped-options=\"title: '" + newWord + "', position: 'top'\">hella</span>"
