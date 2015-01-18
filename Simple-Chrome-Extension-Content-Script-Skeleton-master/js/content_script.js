@@ -33,12 +33,22 @@ $(function() {
 	    xmlHttp.send(null);
 	    var responseText = xmlHttp.responseText;
 	    console.log(responseText);
-		$(txt).eq(i).text(responseText);
-		$(txt).eq(i).attr("title", originalText);
+	    var oldWord = responseText.split("|")[2];
+	    var newWord = responseText.split("|")[1];
+	    responseText = responseText.split("|")[0];
 
+		$(txt).eq(i).text(responseText);
+		$(txt).eq(i).attr("data-content", originalText);
+		$(txt).eq(i).attr("data-title", oldWord + " ➤ "+ newWord);
 		}
 
-  Tipped.create(txt);
+  //Tipped.create(txt);
+   Tipped.create(txt, function() {
+      return {
+        title: $(this).data('title'),
+        content: $(this).data('content')
+      };
+    });
   $(txt).css("float", "left");
 	// 
 	// var posts = $(txt);
