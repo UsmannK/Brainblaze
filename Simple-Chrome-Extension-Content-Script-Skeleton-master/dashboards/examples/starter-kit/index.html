@@ -9,7 +9,7 @@
 <script type="text/javascript" charset="utf8" src="../../../DataTables/media/js/jquery.js"></script>
 <script type="text/javascript" src="../../../DataTables/media/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="../../../DataTables/extensions/KeyTable/js/dataTables.keyTable.js"></script>
-
+<script src="Chart.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../../../DataTables/media/css/jquery.dataTables.css"></link>
 <link rel="stylesheet" type="text/css" href="../../../DataTables/extensions/KeyTable/css/dataTables.keyTable.css">
@@ -47,10 +47,10 @@
       <div class="col-sm-12">
         <div class="chart-wrapper">
           <div class="chart-title">
-          Words replaced per hour (past 24 hours)
+          Words replaced per day (past week)
           </div>
           <div class="chart-stage">
-            <div id="chart-01"></div>
+            <canvas id="canvas" height="100" width="600"></canvas>
           </div>
          <!--  <div class="chart-notes">
             Words replaced per hour
@@ -76,24 +76,24 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
+                        <td>Renounce</td>
+                        <td>Abnegate</td>
                     </tr>
                     <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
+                        <td>Guilty</td>
+                        <td>Peccant</td>
                     </tr>
                     <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
+                        <td>Common</td>
+                        <td>Plebeian</td>
                     </tr>
                     <tr>
-                        <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
+                        <td>Resilience</td>
+                        <td>Mettle</td>
                     </tr>
                     <tr>
-                        <td>Airi Satou</td>
-                        <td>Accountant</td>
+                        <td>AMischievous</td>
+                        <td>Maleficent</td>
                     </tr>
                     <tr>
                         <td>Brielle Williamson</td>
@@ -204,6 +204,31 @@
   <script src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
   <script src="../../assets/lib/holderjs/holder.js"></script>
+  <script>
+
+        var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+        var lineChartData = {
+            labels : ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            datasets : [
+                {
+                    label: "My First dataset",
+                    fillColor : "rgba(151,187,205,0.2)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(151,187,205,1)",
+                    data : [20,34,33,40,18,37,28]
+                }
+            ]
+        }
+    window.onload = function(){
+        var ctx = document.getElementById("canvas").getContext("2d");
+        window.myLine = new Chart(ctx).Line(lineChartData, {
+            responsive: true
+        });
+    }
+  </script>
   <script>
     Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
   </script>
