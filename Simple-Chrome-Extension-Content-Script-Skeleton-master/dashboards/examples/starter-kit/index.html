@@ -6,8 +6,13 @@
   <link rel="stylesheet" href="../../assets/css/keen-dashboards.css">
 
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="../../../js/cdn.datatables.net/jquery.dataTables.js"></script>
-<link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="../../../DataTables/media/js/jquery.js"></script>
+<script type="text/javascript" src="../../../DataTables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../../../DataTables/extensions/KeyTable/js/dataTables.keyTable.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="../../../DataTables/media/css/jquery.dataTables.css"></link>
+<link rel="stylesheet" type="text/css" href="../../../DataTables/extensions/KeyTable/css/dataTables.keyTable.css">
 
 </head>
 <body class="application">
@@ -59,7 +64,62 @@
             Pageviews by browser (past 5 days)
           </div>
           <div class="chart-stage">
-            <div id="chart-02"></div>
+            <div>
+              <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Before</th>
+                        <th>After</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                    </tr>
+                    <tr>
+                        <td>Ashton Cox</td>
+                        <td>Junior Technical Author</td>
+                    </tr>
+                    <tr>
+                        <td>Cedric Kelly</td>
+                        <td>Senior Javascript Developer</td>
+                    </tr>
+                    <tr>
+                        <td>Airi Satou</td>
+                        <td>Accountant</td>
+                    </tr>
+                    <tr>
+                        <td>Brielle Williamson</td>
+                        <td>Integration Specialist</td>
+                    </tr>
+                    <tr>
+                        <td>Herrod Chandler</td>
+                        <td>Sales Assistant</td>
+                    </tr>
+                    <tr>
+                        <td>Rhona Davidson</td>
+                        <td>Integration Specialist</td>
+                    </tr>
+                    <tr>
+                        <td>Colleen Hurst</td>
+                        <td>Javascript Developer</td>
+                    </tr>
+                    <tr>
+                        <td>Sonya Frost</td>
+                        <td>Software Engineer</td>
+                    </tr>
+                    <tr>
+                        <td>Jena Gaines</td>
+                        <td>Office Manager</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
           </div>
           <!-- <div class="chart-notes">
             Notes go down here
@@ -145,13 +205,23 @@
 
   </div>
 
-  <script src="../../assets/lib/jquery/dist/jquery.min.js"></script>
+  <!--<script src="../../assets/lib/jquery/dist/jquery.min.js"></script>-->
   <script src="../../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
   <script src="../../assets/lib/holderjs/holder.js"></script>
   <script>
     Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
   </script>
+  <script type="text/javascript">
+// $(document).load(function() {
+//     var table = $('#example').DataTable();
+ 
+//     new $.fn.dataTable.KeyTable( table );
+// } );
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 
   <script src="../../assets/lib/keen-js/dist/keen.min.js"></script>
   <script src="../../assets/js/meta.js"></script>

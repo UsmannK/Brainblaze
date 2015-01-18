@@ -185,7 +185,4 @@ Keen.ready(function(){
       legend: { position: "none" }
     },
   });
-
-
-
 });
