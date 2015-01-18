@@ -1,5 +1,5 @@
 {
-    "name": "My awesome extension :)",
+    "name": "Smartify",
     "version": "0.1",
     "icons": { 
         "16": "/img/icons/icon_16.png",
@@ -7,12 +7,17 @@
         "128": "/img/icons/icon_128.png" 
     },
 
-    "description": "Yay, I'm so useless.",
+    "description": "Your smart thesaurus",
     "permissions": [
         "https://*/*",
         "http://*/*",
         "storage"
     ],
+
+    "externally_connectable": {
+  "matches": ["*://api.textrazor.com/*"],
+  "matches": ["*://myflyr.me/*"]
+},
 
     "content_scripts": [
         {

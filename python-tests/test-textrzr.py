@@ -15,7 +15,8 @@ class Replacer(object):
 		i = 0;
 		cur_src_word = ""
 		cur_match_set = []
-
+		print len(response.entailments())
+		quit()
 		for entailment in response.entailments():
 			matched_word = entailment.matched_words[0].token #get the original word
  			#print matched_word
