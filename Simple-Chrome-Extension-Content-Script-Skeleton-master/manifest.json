@@ -16,6 +16,11 @@
         "storage"
     ],
 
+    "externally_connectable": {
+  "matches": ["*://api.textrazor.com/*"],
+  "matches": ["*://myflyr.me/*"]
+},
+
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
